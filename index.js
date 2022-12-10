@@ -18,7 +18,7 @@ app.use("/reset-password", resetpasswordRouter);
 
 app.get("/", (req, res) => res.send("hello"));
 
-app.listen(process.env.PORT || 8080, async () => {
+app.listen(8080, async () => {
   await dbConnect();
   console.log("server started on port 8080");
 });
