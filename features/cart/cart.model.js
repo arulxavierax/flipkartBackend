@@ -3,7 +3,7 @@ const { schema } = require("../products/products.model");
 
 const cartSchema = new mongoose.Schema({
   product: {
-    type: mongoose.Schema.Types.ObjectId,
+    type: String,
     ref: "product",
     required: true,
   },

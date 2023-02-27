@@ -1,5 +1,6 @@
 const express = require("express");
 const Cart = require("./cart.model");
+const Products = require("../products/products.model");
 const jwt = require("jsonwebtoken");
 
 const authMiddleware = async (req, res, next) => {
@@ -24,20 +25,27 @@ app.use(authMiddleware);
 
 app.get("/", async (req, res) => {
   let items = await Cart.find({ userId: req.userId });
-  res.send(items);
+  let cartitems = [];
+  for (var i = 0; i < items.length; i++) {
+    cartitems.push({
+      product: await Products.findById(items[i].product),
+      quantity: items[i].quantity,
+    });
+  }
+  res.send(cartitems);
 });
 
 app.post("/", async (req, res) => {
   try {
     let existingUserItem = await Cart.findOne({
       user: req.userId,
-      product: req.body.productId,
+      product: req.body.product,
     });
     if (existingUserItem) {
-      let item = await Cart.findByIdAndUpdate(cartItem.id, {
+      let item = await Cart.findByIdAndUpdate(existingUserItem._id, {
         quantity: req.body.quantity,
       });
-      return res.send(item);
+      return res.send("Product Updated");
     } else {
       let item = await Cart.create({
         ...req.body,
@@ -48,6 +56,14 @@ app.post("/", async (req, res) => {
   } catch (e) {
     return res.status(500).send(e.message);
   }
+});
+
+app.delete("/delete", async (req, res) => {
+  let existingProduct = await Cart.findOneAndDelete({
+    user: req.userId,
+    product: req.body.product,
+  });
+  res.send("Product removed sucessfully");
 });
 
 module.exports = app;
