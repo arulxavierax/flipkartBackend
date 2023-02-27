@@ -4,6 +4,7 @@ const dbConnect = require("./config/db");
 const productsRoute = require("./features/products/products.router");
 const userRoute = require("./features/users/user.router");
 const resetpasswordRouter = require("./features/reset-password/resetPassword.router");
+const cartRouter = require("./features/cart/cart.router");
 
 const PORT = process.env.PORT || 8080;
 
@@ -15,6 +16,7 @@ app.use(express.json());
 app.use("/products", productsRoute);
 app.use("/user", userRoute);
 app.use("/reset-password", resetpasswordRouter);
+app.use("/cart", cartRouter);
 
 app.get("/", (req, res) => res.send("hello"));
 
