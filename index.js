@@ -5,6 +5,7 @@ const productsRoute = require("./features/products/products.router");
 const userRoute = require("./features/users/user.router");
 const resetpasswordRouter = require("./features/reset-password/resetPassword.router");
 const cartRouter = require("./features/cart/cart.router");
+const favouriteRouter = require("./features/favourite/favourite.router");
 
 const PORT = process.env.PORT || 8080;
 
@@ -17,6 +18,7 @@ app.use("/products", productsRoute);
 app.use("/user", userRoute);
 app.use("/reset-password", resetpasswordRouter);
 app.use("/cart", cartRouter);
+app.use("/favourite", favouriteRouter);
 
 app.get("/", (req, res) => res.send("hello"));
 

@@ -1,6 +1,6 @@
 const mongoose = require("mongoose");
 
-const cartSchema = new mongoose.Schema({
+const favouriteSchema = new mongoose.Schema({
   product: {
     type: String,
     ref: "product",
@@ -11,13 +11,8 @@ const cartSchema = new mongoose.Schema({
     ref: "user",
     required: true,
   },
-  quantity: {
-    type: Number,
-    required: true,
-    min: 1,
-  },
 });
 
-const Cart = mongoose.model("cart", cartSchema);
+const Favourite = mongoose.model("favourite", favouriteSchema);
 
-module.exports = Cart;
+module.exports = Favourite;
