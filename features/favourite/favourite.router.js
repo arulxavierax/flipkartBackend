@@ -27,9 +27,7 @@ app.get("/", async (req, res) => {
   let items = await Favourite.find({ user: req.userId });
   let favouritesitems = [];
   for (var i = 0; i < items.length; i++) {
-    favouritesitems.push({
-      product: await Products.findById(items[i].product),
-    });
+    favouritesitems.push(await Products.findById(items[i].product));
   }
   res.send(favouritesitems);
 });
