@@ -24,7 +24,7 @@ const app = express.Router();
 app.use(authMiddleware);
 
 app.get("/", async (req, res) => {
-  let items = await Favourite.find({ userId: req.userId });
+  let items = await Favourite.find({ user: req.userId });
   let favouritesitems = [];
   for (var i = 0; i < items.length; i++) {
     favouritesitems.push({

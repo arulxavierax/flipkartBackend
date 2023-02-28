@@ -24,7 +24,7 @@ const app = express.Router();
 app.use(authMiddleware);
 
 app.get("/", async (req, res) => {
-  let items = await Cart.find({ userId: req.userId });
+  let items = await Cart.find({ user: req.userId });
   let cartitems = [];
   for (var i = 0; i < items.length; i++) {
     cartitems.push({
