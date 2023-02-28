@@ -53,12 +53,12 @@ app.post("/", async (req, res) => {
   }
 });
 
-app.delete("/delete", async (req, res) => {
+app.delete("/:id", async (req, res) => {
+  const { id } = req.params;
   let existingProduct = await Favourite.findOneAndDelete({
     user: req.userId,
-    product: req.body.product,
+    product: id,
   });
-  
   res.send("Product removed sucessfully");
 });
 
