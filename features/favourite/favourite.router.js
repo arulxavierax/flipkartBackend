@@ -58,6 +58,7 @@ app.delete("/delete", async (req, res) => {
     user: req.userId,
     product: req.body.product,
   });
+  
   res.send("Product removed sucessfully");
 });
 
