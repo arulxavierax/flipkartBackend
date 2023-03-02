@@ -28,6 +28,9 @@ This repository contains the backend work of the clone website flipkart.
 6. Cart Page
 ![Screenshot (41)](https://user-images.githubusercontent.com/103952018/222069851-ad5005ac-1750-4635-a220-b16ee03d4b56.png)
 
+7. Orders Page
+![Screenshot (42)](https://user-images.githubusercontent.com/103952018/222340417-f76f84be-cb4a-405f-be51-9f1323594bf6.png)
+
 ## Features
 
 - Login/Signup
@@ -37,6 +40,7 @@ This repository contains the backend work of the clone website flipkart.
 - Single Product Page
 - Favourite Products Page
 - Cart Page
+-cPurchased product's page
 
 ## Tech Stack
 
