@@ -3,6 +3,8 @@ const Orders = require("./orders.model");
 const Products = require("../products/products.model");
 const jwt = require("jsonwebtoken");
 
+// Route
+s
 const authMiddleware = async (req, res, next) => {
   let token = req.headers.token;
   if (token) {
